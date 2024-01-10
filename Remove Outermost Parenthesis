@@ -1,0 +1,37 @@
+
+class Solution:
+    def removeOuterParentheses(self,s: str) -> str:
+        stack = []
+        res= ""
+        n = []
+        for i,v in enumerate(s):
+            if s[i] == "(":
+                stack.append(i)
+            
+            else:
+                b = stack.pop()
+                if not stack:
+                    n.append(b)
+                    n.append(i)
+        for i,v in enumerate(s):
+            if i not in n:
+                res+=v
+        return res
+#2nd solution
+
+class Solution:
+    def removeouterParentheses(self,S: str) -> str:
+        res, opened = [], 0
+        for i in S:
+            if i=="(" and opened >0: res.append(i)
+            if i ==")" and opened >1: res.append(i)
+            opened+=1 if i == "(" else -1
+
+        return "".join(res)
+
+
+
+print(Solution().removeouterParentheses("((())))"))
+        
+
+
