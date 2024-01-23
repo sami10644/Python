@@ -1,0 +1,25 @@
+    # def remove_duplicate(self):
+    #     curr = self.head
+    #     while curr.next != None:
+    #         try:
+    #          while curr.data == curr.next.data :
+    #             curr.next = curr.next.next
+    #             self.n = self.n - 1
+    #         except:
+    #             return "nonetype object"
+    #         curr = curr.next
+    #
+    #     return
+
+
+    def remove_duplicate(self):
+        curr = self.head
+
+        while curr and curr.next:
+            if curr.data == curr.next.data:
+                curr.next = curr.next.next
+                self.n = self.n - 1
+            else:
+                curr = curr.next
+
+        return
